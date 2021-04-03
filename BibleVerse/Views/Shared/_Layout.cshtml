@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meat name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BibleVerseApp</title>
+
+    @* rel is a link with with a rel attribute - specify the relationship between the current and the link document *@
+    @* href attribute specifies the specific url of the page the link goes to *@
+    @* type attribute specifies the media type of the linked document/resource *@
+    @* media attribute specifies what media/device the kink is optimized for *@
+
+    <link rel="stylesheet" href="~/css/reset.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/css/layout.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" media="all" />
+    <script type="text/javascript" src="~/js/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="~/js/cufon-yui.js"></script>
+    <script type="text/javascript" src="~/js/cufon-replace.js"></script>
+    <script type="text/javascript" src="~/js/Myriad_Pro_400.font.js"></script>
+    <script type="text/javascript" src="~/js/Myriad_Pro_italic_400.font.js"></script>
+    <script type="text/javascript" src="~/js/Myriad_Pro_italic_600.font.js"></script>
+
+</head>
+<body id="page1">
+    <div class="body1">
+        <div class="main">
+            <header>
+                <div class="wrapper">
+                    <h1>
+                        @* span tag is a generic in line container for phrasing content, used to group elements for styling
+                            div tag is used for block level content *@
+                        <a href="index.cshtml" id="logo">bible search</a><span id="slogan">find your bible verse</span>
+                    </h1>
+                    <div class="right">
+                        @* nav element represents a section of the page whose purpose is to provide navigation links *@
+                        <nav>
+                            <ul id="top_nav">
+                                <li><a href="index.cshtml"><img src="~/image/img1.gif" /></a></li>
+                                <li><a href="index.cshtml"><img src="~/image/img2.gif" /></a></li>
+                                <li class="bg_none"><a href="index.cshtml"><img src="~/image/img3.gif" /></a></li>
+                            </ul>
+                        </nav>
+                        <nav>
+                            <ul id="menu">
+                                <li id="menu_active"><a href="index.cshtml"></a>Home</li>
+                                <li id="menu_active"><a href="index.cshtml"></a>Bible App</li>
+                                <li id="menu_active"><a href="index.cshtml"></a>Search</li>
+                                <li id="menu_active"><a href="index.cshtml"></a>Contact Us</li>
+                                <li id="menu_active"><a href="index.cshtml"></a>About Us</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <div class="body2">
+        <!-- Footer -->
+        <footer>
+            &copy: 2021 - Bible Verse App - 
+        </footer>
+        <!-- End Footer -->
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">Cufon.now();</script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @* This means that the main layout has section scripts. 
+        Only the exsistance of a RenderSection call makes a layout actually have a script section. 
+        The await operator suspends an evaluation of the enclosed async method until the async operation is represented by its operand completes.
+        When the async operation completes, the await returns the results of the operation if any.
+        Primarily used for APIs *@
+    @await RenderSectionAsync("Scripts", required: false) 
+</body>
+</html>
